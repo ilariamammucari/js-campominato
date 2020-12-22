@@ -16,8 +16,23 @@
 var numeriPc = [];
 var numeriUtente = [];
 
+
+// faccio due variabili con il numero massimo del range di numeri casuali e l'altra con il numero di possibilità che ha l'utente e cambio l'algoritmo con lo switch invece dell'if
 var numeroMax = 100;
+var difficoltà = prompt('Inserisci il livello di difficoltà: 0,1,2');
+switch (difficoltà){
+  case '1':
+  numeroMax = 80;
+  break;
+
+  case '2':
+  numeroMax = 50;
+  break;
+}
 var numeroTentativi = numeroMax - 16;
+
+
+
 // aggiungo 16 numeri all'arrey del pc senza ripetizioni in un intervallo tra 1 e 100
 while (numeriPc.length < 16){
   var nRandom = numeriRandom(1,numeroMax);
