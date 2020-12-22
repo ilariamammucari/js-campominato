@@ -73,7 +73,7 @@ function numeriRandom(min, max){
 function inserimentoUtente(n) {
   var sentinella = true;
   while (numeriUtente.length < n && sentinella){
-    var nUtente = parseInt(prompt('inserisci un numero compreso tra 1 e 100'));
+    var nUtente = parseInt(prompt('inserisci un numero compreso tra 1 e ' + numeroMax));
     if (numeriUtente.includes(nUtente)){
       alert('Hai già inserito questo numero');
     } else if (!numeriPc.includes(nUtente)){
