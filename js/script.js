@@ -16,9 +16,11 @@
 var numeriPc = [];
 var numeriUtente = [];
 
+var numeroMax = 100;
+var numeroTentativi = numeroMax - 16;
 // aggiungo 16 numeri all'arrey del pc senza ripetizioni in un intervallo tra 1 e 100
 while (numeriPc.length < 16){
-  var nRandom = numeriRandom(1,100);
+  var nRandom = numeriRandom(1,numeroMax);
   // controllo che non ci siano doppioni con il metodo .includes (che mi restituisce un valore booleano) e aggiungo valori all'arrey
   if (!numeriPc.includes(nRandom)){
     numeriPc.push(nRandom);
@@ -28,11 +30,11 @@ console.log(numeriPc);
 
 
 // inserimento numeri per l'utente con una funzione
-var numeroUtente = inserimentoUtente();
+var numeroUtente = inserimentoUtente(numeroTentativi);
 console.log(numeriUtente);
 
-var tentativi = 'Hai perso al tentativo numero: ' + numeriUtente.length;
-if (numeriUtente.length == 84){
+var tentativi = 'Hai perso al tentativo numero: ' + parseInt(numeriUtente.length + 1);
+if (numeriUtente.length == numeroTentativi){
   tentativi = 'Mi disopiace, hai raggiunto numero massimo di tentativi.';
 }
 console.log(tentativi);
@@ -53,11 +55,13 @@ function numeriRandom(min, max){
 }
 
 // per inserimento dei numeri dell'utente e controllo
-function inserimentoUtente() {
+function inserimentoUtente(n) {
   var sentinella = true;
-  while (numeriUtente.length < 84 && sentinella){
+  while (numeriUtente.length < n && sentinella){
     var nUtente = parseInt(prompt('inserisci un numero compreso tra 1 e 100'));
-    if (!numeriPc.includes(nUtente)){
+    if (numeriUtente.includes(nUtente)){
+      alert('Hai già inserito questo numero');
+    } else if (!numeriPc.includes(nUtente)){
       numeriUtente.push(nUtente);
     } else {
       sentinella = false;
