@@ -50,11 +50,11 @@ console.log(numeriUtente);
 
 var tentativi = 'Mi dispiace...hai perso al tentativo numero: ' + parseInt(numeriUtente.length + 1);
 if (numeriUtente.length == numeroTentativi){
-  tentativi = 'Hai raggiunto numero massimo di tentativi quindi.....HAI VINTO!';
+  tentativi = 'Hai raggiunto il numero massimo di tentativi quindi.....HAI VINTO!' + '&#129321;';
 }
-console.log(tentativi);
+// console.log(tentativi);
 
-
+document.getElementById('prove').innerHTML = tentativi;
 
 
 
@@ -80,7 +80,7 @@ function inserimentoUtente(n,max) {
       numeriUtente.push(nUtente);
     } else {
       sentinella = false;
-      alert('BOMBA!');
+      document.getElementById('emoji').innerHTML = 'BOMBA' + '&#128520;';
     }
   }
   return nUtente;
