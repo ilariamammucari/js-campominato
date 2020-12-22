@@ -26,9 +26,13 @@ while (numeriPc.length < 16){
 }
 console.log(numeriPc);
 
+
+// inserimento numeri per l'utente con una funzione
 var numeroUtente = inserimentoUtente();
 console.log(numeriUtente);
 
+var tentativi = 'Hai perso al tentativo numero: ' + numeriUtente.length;
+console.log(tentativi);
 
 
 
@@ -48,7 +52,7 @@ function numeriRandom(min, max){
 // per inserimento dei numeri dell'utente e controllo
 function inserimentoUtente() {
   var sentinella = true;
-  while (numeriUtente.length <= 84 && sentinella){
+  while (numeriUtente.length < 10 && sentinella){
     var nUtente = parseInt(prompt('inserisci un numero compreso tra 1 e 100'));
     if (!numeriPc.includes(nUtente)){
       numeriUtente.push(nUtente);
